@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Building::factory()
             ->create([
+                'type' => 'condo',
                 'active' => true,
                 'car_parking' => true,
                 'moto_parking' => false,
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Building::factory()
             ->create([
+                'type' => 'landed-house',
                 'active' => true,
                 'car_parking' => false,
                 'moto_parking' => true,

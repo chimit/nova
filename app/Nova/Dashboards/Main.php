@@ -3,6 +3,7 @@
 namespace App\Nova\Dashboards;
 
 use App\Nova\Metrics\BuildingsPerActive;
+use App\Nova\Metrics\BuildingsPerType;
 use Laravel\Nova\Dashboards\Main as Dashboard;
 
 class Main extends Dashboard
@@ -16,6 +17,7 @@ class Main extends Dashboard
     {
         return [
             new BuildingsPerActive,
+            new BuildingsPerType,
         ];
     }
 }
