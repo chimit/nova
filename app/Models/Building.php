@@ -15,6 +15,7 @@ class Building extends Model
      * @var array
      */
     protected $casts = [
+        'active' => 'boolean',
         'car_parking' => 'boolean',
         'moto_parking' => 'boolean',
     ];

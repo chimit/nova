@@ -43,6 +43,7 @@ class Building extends Resource
     {
         return [
             ID::make()->sortable(),
+            Boolean::make('Active'),
             Boolean::make('Car parking'),
             Boolean::make('Moto parking'),
         ];

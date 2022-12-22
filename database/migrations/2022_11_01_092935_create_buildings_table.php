@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
+            $table->boolean('active')->default(true);
             $table->boolean('car_parking')->default(false);
             $table->boolean('moto_parking')->default(false);
             $table->timestamps();

@@ -14,19 +14,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Building::factory()->create([
-            'car_parking' => true,
-            'moto_parking' => false,
-        ]);
+        \App\Models\Building::factory()
+            ->create([
+                'active' => true,
+                'car_parking' => true,
+                'moto_parking' => false,
+            ]);
 
-        \App\Models\Building::factory()->create([
-            'car_parking' => false,
-            'moto_parking' => true,
-        ]);
+        \App\Models\Building::factory()
+            ->create([
+                'active' => true,
+                'car_parking' => false,
+                'moto_parking' => true,
+            ]);
 
-        \App\Models\Building::factory()->create([
-            'car_parking' => true,
-            'moto_parking' => true,
-        ]);
+        \App\Models\Building::factory()
+            ->create([
+                'active' => false,
+                'car_parking' => true,
+                'moto_parking' => true,
+            ]);
     }
 }
