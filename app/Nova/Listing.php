@@ -43,15 +43,8 @@ class Listing extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            BelongsTo::make('Category')
-                ->showWhenPeeking()
-                ->sortable()
-                ->filterable(),
-
-            HasOneThrough::make('Building')
-                ->sortable()
-                ->exceptOnForms(),
+            BelongsTo::make('Category'),
+            HasOneThrough::make('Building'),
         ];
     }
 

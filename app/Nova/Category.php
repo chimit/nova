@@ -43,16 +43,8 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            BelongsTo::make('Building')
-                ->showWhenPeeking()
-                ->sortable()
-                ->filterable(),
-
-            HasOne::make('Listing')
-                ->hideWhenCreating()
-                ->hideWhenUpdating()
-                ->sortable(),
+            BelongsTo::make('Building'),
+            HasOne::make('Listing'),
         ];
     }
 
