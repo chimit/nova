@@ -2,22 +2,20 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\CreateProject;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\HasManyThrough;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasOneThrough;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Building extends Resource
+class Listing extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var string
+     * @var class-string<\App\Models\Listing>
      */
-    public static $model = \App\Models\Building::class;
+    public static $model = \App\Models\Listing::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -45,11 +43,15 @@ class Building extends Resource
     {
         return [
             ID::make()->sortable(),
-            Boolean::make('Active'),
-            Boolean::make('Car parking'),
-            Boolean::make('Moto parking'),
-            HasManyThrough::make('Listings'),
-            HasMany::make('Categories'),
+
+            BelongsTo::make('Category')
+                ->showWhenPeeking()
+                ->sortable()
+                ->filterable(),
+
+            HasOneThrough::make('Building')
+                ->sortable()
+                ->exceptOnForms(),
         ];
     }
 
@@ -94,11 +96,6 @@ class Building extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [
-            resolve(CreateProject::class)
-                ->canSee(function ($request) {
-                    return $request->selectedResources()?->count() === 1;
-                }),
-        ];
+        return [];
     }
 }
