@@ -61,7 +61,9 @@ class Building extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [
+            (new Metrics\BuildingsPerActive())->onlyOnDetail(),
+        ];
     }
 
     /**
