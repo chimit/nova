@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('active')->default(true);
             $table->boolean('car_parking')->default(false);
             $table->boolean('moto_parking')->default(false);
+            $table->timestamp('renovated_at')->nullable();
             $table->timestamps();
         });
     }

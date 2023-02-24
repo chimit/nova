@@ -8,34 +8,14 @@ use Laravel\Nova\Fields\HasOneThrough;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Home extends Resource
+class Room extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Home::class;
-
-    /**
-     * Get the value that should be displayed to represent the resource.
-     *
-     * @return string
-     */
-    public function title()
-    {
-        return $this->floor.'-'.$this->door;
-    }
-
-    /**
-     * Get the search result subtitle for the resource.
-     *
-     * @return string
-     */
-    public function subtitle()
-    {
-        return $this->category->listing->name.' at '.$this->building->name;
-    }
+    public static $model = \App\Models\Room::class;
 
     /**
      * The columns that should be searched.

@@ -3,7 +3,6 @@
 namespace App\Nova;
 
 use App\Nova\Actions\CreateProject;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasManyThrough;
@@ -62,7 +61,6 @@ class Building extends Resource
     public function cards(NovaRequest $request)
     {
         return [
-            (new Metrics\BuildingsPerActive())->onlyOnDetail(),
             (new Metrics\DaysLeftToRenovationMetric())->onlyOnDetail(),
         ];
     }

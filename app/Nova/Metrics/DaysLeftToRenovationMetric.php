@@ -15,7 +15,7 @@ class DaysLeftToRenovationMetric extends Value
     public function calculate(NovaRequest $request)
     {
         $model = $request->findModel($request->resourceId);
-        $deadline = $model->updated_at->addYear();
+        $deadline = $model->renovated_at->addYear();
         $result = $deadline > now() ? $deadline->diffInDays(now()) : 0;
 
         return $this->result($result);
@@ -38,6 +38,6 @@ class DaysLeftToRenovationMetric extends Value
      */
     public function uriKey()
     {
-        return 'test-counter';
+        return 'renovated-counter';
     }
 }

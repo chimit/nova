@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Home>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Room>
  */
-class HomeFactory extends Factory
+class RoomFactory extends Factory
 {
     /**
      * Indicate that the home is active.
@@ -66,7 +66,6 @@ class HomeFactory extends Factory
     public function definition()
     {
         return [
-            'thm_listing_id' => uniqid(),
             'active' => $this->faker->boolean(),
             'floor' => $this->faker->unique()->numberBetween(1, 40),
             'door' => $this->faker->numberBetween(1, 100),
