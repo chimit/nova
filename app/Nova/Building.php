@@ -63,6 +63,7 @@ class Building extends Resource
     {
         return [
             (new Metrics\BuildingsPerActive())->onlyOnDetail(),
+            (new Metrics\DaysLeftToRenovationMetric())->onlyOnDetail(),
         ];
     }
 

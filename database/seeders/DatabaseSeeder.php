@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Building::factory()
+        $b1 = \App\Models\Building::factory()
             ->create([
                 'type' => 'condo',
                 'active' => true,
@@ -22,7 +21,7 @@ class DatabaseSeeder extends Seeder
                 'moto_parking' => false,
             ]);
 
-        \App\Models\Building::factory()
+        $b2 = \App\Models\Building::factory()
             ->create([
                 'type' => 'landed-house',
                 'active' => true,
@@ -30,11 +29,24 @@ class DatabaseSeeder extends Seeder
                 'moto_parking' => true,
             ]);
 
-        \App\Models\Building::factory()
+        $b3 = \App\Models\Building::factory()
             ->create([
                 'active' => false,
                 'car_parking' => true,
                 'moto_parking' => true,
+            ]);
+
+        $c1 = \App\Models\Category::factory()
+            ->create([
+                'building_id' => $b1->id,
+            ]);
+
+        $h = \App\Models\Home::factory()
+            ->create([
+                'category_id' => $c1->id,
+                'active' => 1,
+                'door' => 1,
+                'floor' => 2,
             ]);
     }
 }
