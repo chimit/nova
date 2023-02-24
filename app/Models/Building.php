@@ -18,6 +18,7 @@ class Building extends Model
         'active' => 'boolean',
         'car_parking' => 'boolean',
         'moto_parking' => 'boolean',
+        'renovated_at' => 'datetime:Y-m-d H:i:s',
     ];
 
     /**
